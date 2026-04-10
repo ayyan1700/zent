@@ -268,27 +268,27 @@ const About = () => {
           <div className="grid grid-cols-1 gap-6 w-full lg:w-1/2">
             <IconContext.Provider value={{ attr: { fill: "url(#purple-indigo-gradient)" }, className: "text-4xl shrink-0" }}>
               {[
-                {
-                  icon: <FaHeart />,
-                  t: "Kid-First Design",
-                  d: "Hum har khilaune ko waisi hi mohabbat se banate hain jaise apne liye."
-                },
-                {
-                  icon: <FaCertificate />,
-                  t: "Global Safety",
-                  d: "Hamari quality be-misaal hai, jo bacho ki hifazat aur khushi ki zamanat deti hai."
-                },
-                {
-                  icon: <FaMagic />,
-                  t: "Infinite Wonder",
-                  d: "Hum har toy ko ek naye aur unique angle se design karte hain taake imagination kabhi khatam na ho."
-                },
-                {
-                  icon: <FaShieldVirus />,
-                  t: "Pure & Secure",
-                  d: "Aapke bacho ki safety hamari top priority aur hamara sabse mazboot wada hai."
-                }
-              ].map((item, i) => (
+  {
+    icon: <FaHeart />,
+    t: "Kid-First Design",
+    d: "We design every toy with the same love and care as if it were made for ourselves."
+  },
+  {
+    icon: <FaCertificate />,
+    t: "Global Safety",
+    d: "Our quality is unmatched, ensuring children’s safety and happiness with complete assurance."
+  },
+  {
+    icon: <FaMagic />,
+    t: "Infinite Wonder",
+    d: "We design every toy from a unique and creative perspective so imagination never ends."
+  },
+  {
+    icon: <FaShieldVirus />,
+    t: "Pure & Secure",
+    d: "Your child’s safety is our top priority and our strongest promise."
+  }
+].map((item, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ x: 20, backgroundColor: "rgba(79, 70, 229, 0.1)" }}

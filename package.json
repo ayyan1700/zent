@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ayyan1700.github.io/toyshop",
+  "homepage": "https://ayyan1700.github.io/zent",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -100,13 +100,6 @@ const Footer = () => {
 
     <li className="flex items-start gap-4">
       <div className="p-2 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600">
-        <HiOutlinePhone size={16} className="text-white" />
-      </div>
-      <span>+92 300 9876543</span>
-    </li>
-
-    <li className="flex items-start gap-4">
-      <div className="p-2 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600">
         <HiOutlineLocationMarker size={16} className="text-white" />
       </div>
       <span className="leading-relaxed">
