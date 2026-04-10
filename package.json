@@ -3,15 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ayyan1700.github.io/zentiboo",
+  "homepage": "https://ayyan1700.github.io/toyshop",
   "scripts": {
-     "dev": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
-    
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
