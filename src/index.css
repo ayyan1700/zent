@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Pura body setup */
+body {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 7J00;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings ke liye fancy font */
+h1, h2, h3,h4,h5,p .fancy-text {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+ 
+  
+}
+
+body{
+  background: linear-gradient(135deg, #38076d, #073688); /* Purple to Blue gradient */
+}
