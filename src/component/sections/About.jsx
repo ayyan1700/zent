@@ -2,10 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { IconContext } from "react-icons"; 
+import { IconContext } from "react-icons";
 import {
   FaFingerprint, FaRocket, FaGem, FaUsers, FaLightbulb,
-  FaAward, FaCloud, FaCogs, FaShieldAlt, FaChartLine
+  FaAward, FaCloud, FaCogs, FaShieldAlt, FaChartLine,
+  FaGamepad,
+  FaMagic,
+  FaRobot,
+  FaPalette,
+  FaBoxOpen,
+  FaHeart,
+  FaCertificate,
+  FaShieldVirus
 } from 'react-icons/fa';
 import factory from '../../assets/factory.jpg';
 
@@ -99,8 +107,7 @@ const About = () => {
             Our Mission & Technological Prowess
           </h3>
           <p className="text-gray-300 text-xl leading-relaxed">
-            Hum sirf code nahi likhte, hum futuristic solutions design karte hain. Hamara maqsad
-            industry ko aise tools dena hai jo scalability aur security mein be-misaal hon.
+            We don’t just make toys; we design futuristic wonders. Our mission is to give the world playthings that are as durable as they are imaginative, setting a new standard for quality and joy.
           </p>
 
           <IconContext.Provider value={{ attr: { fill: "url(#purple-indigo-gradient)" }, className: "text-2xl shrink-0" }}>
@@ -133,10 +140,10 @@ const About = () => {
 
 
 
-      {/* 3. 3D CIRCULAR SLIDER (Logic remains same, visually sharpened) */}
+      {/* 3. 3D CIRCULAR SLIDER (Pure Image Loop - No Borders/No Text) */}
       <div className="relative h-[500px] md:h-[700px] flex items-center justify-center perspective-[2500px] mb-40 overflow-hidden">
-  <style>
-    {`
+        <style>
+          {`
       @keyframes carousel3d {
         0% { transform: rotateY(0deg); }
         100% { transform: rotateY(360deg); }
@@ -156,73 +163,44 @@ const About = () => {
       .item-3d {
         position: absolute; 
         inset: 0; 
-        border-radius: 30px;
-        border: 2px solid rgba(255, 255, 255, 0.1); 
+        border-radius: 20px; /* Optional: Thoda sa curve rakha hai images ke liye */
         overflow: hidden;
-        backface-visibility: visible; /* Dono sides nazar aayengi loop mein */
-        background: #0d0d10;
-        box-shadow: 0 0 40px rgba(0,0,0,0.8);
-        transition: all 0.5s ease;
+        backface-visibility: visible;
+        background: transparent;
+        transition: transform 0.5s ease;
       }
 
-      /* Desktop Distances (4 Images = 90deg intervals) */
+      /* Desktop Distance */
       .item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(400px); }
       .item-3d:nth-child(2) { transform: rotateY(90deg) translateZ(400px); }
       .item-3d:nth-child(3) { transform: rotateY(180deg) translateZ(400px); }
       .item-3d:nth-child(4) { transform: rotateY(270deg) translateZ(400px); }
 
-      /* Mobile Responsiveness: translateZ kam kiya taaki cards screen se bahar na jayen */
+      /* Mobile Distance */
       @media (max-width: 768px) {
         .item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(250px); }
         .item-3d:nth-child(2) { transform: rotateY(90deg) translateZ(250px); }
         .item-3d:nth-child(3) { transform: rotateY(180deg) translateZ(250px); }
         .item-3d:nth-child(4) { transform: rotateY(270deg) translateZ(250px); }
       }
-
-      /* Hover Glow Effect */
-      .item-3d:hover {
-        border-color: #6366f1;
-        box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
-      }
     `}
-  </style>
+        </style>
 
-  <div className="carousel-container">
-    {topItems.slice(0, 4).map((img, i) => (
-      <div key={i} className="item-3d group cursor-pointer">
-        {/* Content Section */}
-        <div className="relative w-full h-full overflow-hidden">
-          <img 
-            src={img} 
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100 scale-110 group-hover:scale-100" 
-            alt="project" 
-          />
-          
-          {/* Top Label */}
-          <div className="absolute top-6 right-6 px-4 py-1 rounded-full border border-white/20 bg-black/40 backdrop-blur-md text-[10px] font-bold tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">
-             CORE PRODUCT
-          </div>
-
-          {/* Bottom Info Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-          
-          <div className="absolute bottom-8 left-8 text-white z-10">
-            <span className="text-indigo-200 font-mono text-xs uppercase tracking-[0.3em] block mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-              Project 0{i + 1}
-            </span>
-            <h4 className="text-2xl font-black italic uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-all duration-500 delay-75 translate-y-4 group-hover:translate-y-0">
-              Elite Showcase
-            </h4>
-          </div>
+        <div className="carousel-container">
+          {topItems.slice(0, 4).map((img, i) => (
+            <div key={i} className="item-3d">
+              <img
+                src={img}
+                className="w-full h-full object-cover"
+                alt={`Toy ${i + 1}`}
+              />
+            </div>
+          ))}
         </div>
+
+        {/* Background Subtle Glow - Sirf 3D depth ke liye, isay bhi hata sakte hain agar bilkul saaf chahiye */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/5 blur-[120px] rounded-full -z-10"></div>
       </div>
-    ))}
-  </div>
-
-  {/* Background Decoration to enhance 3D feel */}
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/5 blur-[120px] rounded-full -z-10"></div>
-</div>
-
 
 
 
@@ -236,18 +214,18 @@ const About = () => {
       <div className="max-w-7xl mx-auto mb-40">
         <div className="text-center mb-20">
           <h3 className="text-4xl font-black uppercase italic tracking-widest bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Core Expertise
+            Toy Universe
           </h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <IconContext.Provider value={{ attr: { fill: "url(#purple-indigo-gradient)" }, className: "text-4xl mb-6 shrink-0" }}>
             {[
-              { icon: <FaFingerprint />, title: "Biometric Tech", desc: "Security solutions built for the next decade." },
-              { icon: <FaRocket />, title: "Ultra Speed", desc: "Optimization that breaks speed barriers." },
-              { icon: <FaGem />, title: "Premium UI", desc: "Design aesthetics inspired by minimalism." },
-              { icon: <FaLightbulb />, title: "Smart AI", desc: "Neural networks integrated seamlessly." },
-              { icon: <FaChartLine />, title: "Growth Analysis", desc: "Data-driven decisions for your business." },
-              { icon: <FaCogs />, title: "Custom Logic", desc: "Complex workflows made incredibly simple." }
+              { icon: <FaGamepad />, title: "Next-Gen Play", desc: "Toys designed with futuristic mechanics and interactive fun." },
+              { icon: <FaMagic />, title: "Pure Wonder", desc: "Crafting magical experiences that spark limitless imagination." },
+              { icon: <FaShieldAlt />, title: "Ultra Safety", desc: "Ironclad durability and safety standards for every creation." },
+              { icon: <FaRobot />, title: "Smart Tech", desc: "Integrating intelligent play-features for the new generation." },
+              { icon: <FaPalette />, title: "Vibrant Art", desc: "Aesthetic designs inspired by dreamworlds and neon fantasies." },
+              { icon: <FaBoxOpen />, title: "Swift Delivery", desc: "Expanding the joy of play with seamless global scalability." }
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -265,6 +243,13 @@ const About = () => {
         </div>
       </div>
 
+
+
+
+
+
+
+
       {/* 5. COUNTDOWN & CARE FOOTER (FIXED VISIBILITY) */}
       <div id="counter" className="max-w-7xl mx-auto pt-24 border-t-2 border-white/10">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-24">
@@ -278,13 +263,31 @@ const About = () => {
             <p className="text-gray-400 font-bold uppercase tracking-[1em] mt-8">Global Impact</p>
           </div>
 
+
+
           <div className="grid grid-cols-1 gap-6 w-full lg:w-1/2">
             <IconContext.Provider value={{ attr: { fill: "url(#purple-indigo-gradient)" }, className: "text-4xl shrink-0" }}>
               {[
-                { icon: <FaUsers />, t: "Client Centric", d: "We treat your project like it's our own." },
-                { icon: <FaAward />, t: "Certified Quality", d: "Excellence recognized by global tech leaders." },
-                { icon: <FaLightbulb />, t: "Innovative Strategy", d: "Hum har project ko ek naye aur unique angle se solve karte hain." },
-                { icon: <FaShieldAlt />, t: "Secure Infrastructure", d: "Aapka data aur privacy hamari top priority aur zamant hai." }
+                {
+                  icon: <FaHeart />,
+                  t: "Kid-First Design",
+                  d: "Hum har khilaune ko waisi hi mohabbat se banate hain jaise apne liye."
+                },
+                {
+                  icon: <FaCertificate />,
+                  t: "Global Safety",
+                  d: "Hamari quality be-misaal hai, jo bacho ki hifazat aur khushi ki zamanat deti hai."
+                },
+                {
+                  icon: <FaMagic />,
+                  t: "Infinite Wonder",
+                  d: "Hum har toy ko ek naye aur unique angle se design karte hain taake imagination kabhi khatam na ho."
+                },
+                {
+                  icon: <FaShieldVirus />,
+                  t: "Pure & Secure",
+                  d: "Aapke bacho ki safety hamari top priority aur hamara sabse mazboot wada hai."
+                }
               ].map((item, i) => (
                 <motion.div
                   key={i}

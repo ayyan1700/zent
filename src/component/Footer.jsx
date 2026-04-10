@@ -94,7 +94,7 @@ const Footer = () => {
         <HiOutlineMail size={16} className="text-white" />
       </div>
       <span className="hover:text-white transition-colors cursor-pointer">
-        support@zentiboo.com
+        info@zentiboo.com
       </span>
     </li>
 
