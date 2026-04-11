@@ -129,56 +129,53 @@ const Home = () => {
                     </div>
 
                     {/* Right Content: CEO Image with Rotating Circle */}
-                  <div className="lg:col-span-5 flex justify-center relative">
-  <div ref={imageRef} className="relative group">
+                    <div className="lg:col-span-5 flex justify-center relative">
+                        <div ref={imageRef} className="relative group">
 
-    {/* 1. Rotating Border Circle */}
-    <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-      className="absolute -inset-6 border border-dashed border-purple-500/30 rounded-full"
-    />
+                            {/* 1. Rotating Border Circle */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                                className="absolute -inset-6 border border-dashed border-purple-500/30 rounded-full"
+                            />
 
-    {/* 2. Outer Glowing Ring */}
-    <motion.div
-      animate={{ scale: [1, 1.05, 1] }}
-      transition={{ duration: 4, repeat: Infinity }}
-      className="absolute -inset-4 rounded-full bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 blur-xl"
-    />
+                            {/* 2. Outer Glowing Ring */}
+                            <motion.div
+                                animate={{ scale: [1, 1.05, 1] }}
+                                transition={{ duration: 4, repeat: Infinity }}
+                                className="absolute -inset-4 rounded-full bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 blur-xl"
+                            />
 
-    {/* 3. Image Container (SQUARE CHANGED) */}
-    <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-white/10 relative z-10">
-      <img
-        src={profileImg}
-        alt="Zentiboo CEO"
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-    </div>
+                            {/* 3. Image Container (SQUARE CHANGED) */}
+                            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-white/10 relative z-10">
+                                <img
+                                    src={profileImg}
+                                    alt="Zentiboo CEO"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                            </div>
 
-    {/* 4. Floating Info Tag (same) */}
-    <motion.div
-      initial={{ x: 20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: 1 }}
-      className="absolute bottom-4 -right-4 bg-black/35 backdrop-blur-xl border border-white/10 p-4 rounded-3xl shadow-2xl z-20"
-    >
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-black italic text-xs">
-          Z
-        </div>
-        <div>
-          <h4 className="text-white font-black text-[10px] leading-none uppercase tracking-tighter">
-            CEO Vision
-          </h4>
-          <p className="text-[8px] text-indigo-200 font-bold uppercase mt-1">
-            Founder 2026
-          </p>
-        </div>
-      </div>
-    </motion.div>
+                            {/* 4. Floating Info Tag (same) */}
+                            <motion.div
+                                initial={{ x: 20, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ delay: 1 }}
+                                className="absolute bottom-4 -right-4 bg-black/35 backdrop-blur-xl border border-white/10 px-2 py-2 rounded-3xl shadow-2xl z-20"
+                            >
+                                <div className="flex items-center gap-1">
+                                    <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-black italic text-xs">
+                                        Z
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-black text-[10px] leading-none uppercase tracking-tighter">
+                                            CEO Vision
+                                        </h4>
+                                    </div>
+                                </div>
+                            </motion.div>
 
-  </div>
-</div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
