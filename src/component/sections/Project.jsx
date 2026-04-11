@@ -19,39 +19,39 @@ export default function Project() {
   const cardsRef = useRef([]);
 
   const projectData = [
-    { 
-      title: "Cuddle Bear Pro", 
-      img: img1, 
-      color: "from-pink-500/40", 
-      tag: "Smart Plush Toy",
-      desc: "Soft interactive teddy jo touch aur voice par react karta hai.",
-      tech: ["Voice Response", "Touch Sensors", "Kid-Safe"]
-    },
-    { 
-      title: "Dino Explorer Kit", 
-      img: img2, 
-      color: "from-green-500/40", 
-      tag: "Educational Toy",
-      desc: "STEM-based dinosaur kit jisme bachay khud apna dino assemble karte hain.",
-      tech: ["STEM Learning", "DIY Assembly", "Safe Plastic"]
-    },
-    { 
-      title: "Robo Buddy X", 
-      img: img3, 
-      color: "from-blue-500/40", 
-      tag: "Interactive Robot",
-      desc: "AI powered toy robot jo bachon ke sath games khelta hai.",
-      tech: ["AI Interaction", "Voice Commands", "Smart Sensors"]
-    },
-    { 
-      title: "Magic Bunny Lights", 
-      img: img4, 
-      color: "from-purple-500/40", 
-      tag: "Creative Toy",
-      desc: "Color-changing bunny jo lights aur music ke sath creativity boost karta hai.",
-      tech: ["LED Effects", "Sound Sync", "Rechargeable"]
-    },
-  ];
+  { 
+    title: "Cuddle Bear Pro", 
+    img: img1, 
+    color: "from-pink-500/40", 
+    tag: "Smart Plush Toy",
+    desc: "A soft interactive teddy that responds to touch and voice.",
+    tech: ["Voice Response", "Touch Sensors", "Kid-Safe"]
+  },
+  { 
+    title: "Dino Explorer Kit", 
+    img: img2, 
+    color: "from-green-500/40", 
+    tag: "Educational Toy",
+    desc: "A STEM-based dinosaur kit where kids can build their own dino.",
+    tech: ["STEM Learning", "DIY Assembly", "Safe Plastic"]
+  },
+  { 
+    title: "Robo Buddy X", 
+    img: img3, 
+    color: "from-blue-500/40", 
+    tag: "Interactive Robot",
+    desc: "An AI-powered toy robot that plays and interacts with kids.",
+    tech: ["AI Interaction", "Voice Commands", "Smart Sensors"]
+  },
+  { 
+    title: "Magic Bunny Lights", 
+    img: img4, 
+    color: "from-purple-500/40", 
+    tag: "Creative Toy",
+    desc: "A color-changing bunny that enhances creativity with lights and music.",
+    tech: ["LED Effects", "Sound Sync", "Rechargeable"]
+  },
+];
 
   // Upcoming Toys Data for Bambluu
   const upcomingToys = [
