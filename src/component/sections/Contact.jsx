@@ -127,7 +127,7 @@ export default function Contact() {
               </div>
 
               <p className="text-gray-400 text-sm leading-relaxed max-w-sm font-medium border-l-2 border-white/5 pl-6">
-                Mera inbox hamesha naye ideas ke liye khula hai. Chahay wo koi complex 3D world ho ya elite web experience—let's make it real.
+               My inbox is always open for new ideas. Whether it’s a complex 3D world or an elite web experience—let’s make it real.
               </p>
             </div>
 

@@ -17,48 +17,48 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Project() {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const circleRef = useRef(null);
 
   const projectData = [
-  { 
-    title: "Cuddle Bear Pro", 
-    img: img1, 
-    color: "from-pink-500/40", 
-    tag: "Smart Plush Toy",
-    desc: "A soft interactive teddy that responds to touch and voice.",
-    tech: ["Voice Response", "Touch Sensors", "Kid-Safe"]
-  },
-  { 
-    title: "Dino Explorer Kit", 
-    img: img2, 
-    color: "from-green-500/40", 
-    tag: "Educational Toy",
-    desc: "A STEM-based dinosaur kit where kids can build their own dino.",
-    tech: ["STEM Learning", "DIY Assembly", "Safe Plastic"]
-  },
-  { 
-    title: "Robo Buddy X", 
-    img: img3, 
-    color: "from-blue-500/40", 
-    tag: "Interactive Robot",
-    desc: "An AI-powered toy robot that plays and interacts with kids.",
-    tech: ["AI Interaction", "Voice Commands", "Smart Sensors"]
-  },
-  { 
-    title: "Magic Bunny Lights", 
-    img: img4, 
-    color: "from-purple-500/40", 
-    tag: "Creative Toy",
-    desc: "A color-changing bunny that enhances creativity with lights and music.",
-    tech: ["LED Effects", "Sound Sync", "Rechargeable"]
-  },
-];
+    { 
+      title: "Cuddle Bear Pro", 
+      img: img1, 
+      color: "from-pink-500/40", 
+      tag: "Smart Plush Toy",
+      desc: "A soft interactive teddy that responds to touch and voice.",
+      tech: ["Voice Response", "Touch Sensors", "Kid-Safe"]
+    },
+    { 
+      title: "Dino Explorer Kit", 
+      img: img2, 
+      color: "from-green-500/40", 
+      tag: "Educational Toy",
+      desc: "A STEM-based dinosaur kit where kids can build their own dino.",
+      tech: ["STEM Learning", "DIY Assembly", "Safe Plastic"]
+    },
+    { 
+      title: "Robo Buddy X", 
+      img: img3, 
+      color: "from-blue-500/40", 
+      tag: "Interactive Robot",
+      desc: "An AI-powered toy robot that plays and interacts with kids.",
+      tech: ["AI Interaction", "Voice Commands", "Smart Sensors"]
+    },
+    { 
+      title: "Magic Bunny Lights", 
+      img: img4, 
+      color: "from-purple-500/40", 
+      tag: "Creative Toy",
+      desc: "A color-changing bunny that enhances creativity with lights and music.",
+      tech: ["LED Effects", "Sound Sync", "Rechargeable"]
+    },
+  ];
 
-  // Upcoming Toys Data for Bambluu
   const upcomingToys = [
-    { img: model1,  },
-    { img: model2, },
-    { img: model3,},
-    { img: model4,},
+    { img: model1 },
+    { img: model2 },
+    { img: model3 },
+    { img: model4 },
   ];
 
   useEffect(() => {
@@ -77,6 +77,40 @@ export default function Project() {
         }
       }
     );
+
+    // 3D CIRCULAR LOOP LOGIC
+    const items = circleRef.current.children;
+    const numItems = items.length;
+    
+    // RADIUS KAM KIYA HAI (Kareeb karne ke liye)
+    const radius = 280; 
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    tl.to({}, {
+      duration: 15,
+      ease: "none",
+      onUpdate: function () {
+        const progress = this.progress();
+        for (let i = 0; i < numItems; i++) {
+          const angle = (progress * Math.PI * 2) + (i / numItems) * Math.PI * 2;
+          const x = Math.sin(angle) * radius;
+          const z = Math.cos(angle) * radius;
+          
+          const scale = gsap.utils.mapRange(-radius, radius, 0.7, 1.5, z);
+          const opacity = gsap.utils.mapRange(-radius, radius, 0.2, 1, z);
+
+          gsap.set(items[i], {
+            x: x,
+            z: z,
+            scale: scale,
+            opacity: opacity,
+            zIndex: Math.round(z),
+            transformOrigin: "50% 50%",
+          });
+        }
+      }
+    });
   }, []);
 
   return (
@@ -85,7 +119,6 @@ export default function Project() {
       ref={sectionRef}
       className='min-h-screen py-22 px-6 relative overflow-hidden'
     >
-      {/* Background Text */}
       <div className="absolute top-10 left-0 w-full flex justify-center opacity-[0.02] pointer-events-none select-none z-0">
         <h1 className="text-[25vw] font-black uppercase italic leading-none text-white">
           Works
@@ -93,8 +126,6 @@ export default function Project() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Existing Projects Heading */}
         <div className="mb-20">
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
@@ -142,9 +173,9 @@ export default function Project() {
           ))}
         </div>
 
-        {/* --- NEW SECTION: UPCOMING TOYS (BAMBLUU) --- */}
+        {/* --- UPCOMING TOYS SECTION --- */}
         <div className="mt-40">
-          <div className="text-center mb-16">
+          <div className="text-center">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,36 +186,20 @@ export default function Project() {
             <p className="text-gray-500 mt-4 tracking-widest uppercase text-sm">Next Generation of Play</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {upcomingToys.map((toy, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group relative"
-              >
-                <div className="aspect-square rounded-[2rem] bg-gradient-to-b from-white/5 to-transparent border border-white/10 flex items-center justify-center overflow-hidden relative">
-                  {/* Decorative Glow */}
-                  <div className="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+          <div className="h-[550px] flex items-center justify-center relative overflow-visible [perspective:1500px]">
+            <div ref={circleRef} className="relative w-full h-full flex items-center justify-center">
+              {upcomingToys.map((toy, index) => (
+                <div key={index} className="absolute w-[400px] md:w-[500px]">
                   <img 
                     src={toy.img} 
-                    alt={toy.name} 
-                    className="w-4/5 h-4/5 object-contain z-10 transition-transform duration-500 group-hover:scale-110"
+                    alt="toy" 
+                    className="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                   />
-                  
-                  {/* Badge */}
-                  <div className="absolute top-4 right-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-20 shadow-lg">
-                    New
-                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
